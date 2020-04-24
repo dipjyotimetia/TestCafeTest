@@ -1,5 +1,8 @@
 FROM ubuntu:latest
 
+ENV TZ=Australia/Melbourne
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install nodejs lts
 ENV NODE_VERSION=12.16.2
 RUN apt-get update && \
